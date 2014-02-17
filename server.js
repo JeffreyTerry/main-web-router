@@ -11,7 +11,7 @@ try
 }
 catch (err)
 {
-	console.log('Failed to launch soba app: \n \t' + err.message);
+	console.log('Failed to launch soba14-web: \n \t' + err.message);
 }
 
 // AliHM.net
