@@ -10,8 +10,10 @@ main.use(express.urlencoded());
 // SoBA Spring 2014 app
 try 
 {
-	// var soba = require ('../soba14-web');
-	// main.use(express.vhost('*.54.84.50.34',soba));
+	var soba = require ('../soba14-web');
+	main.use(express.vhost('*.parking.alihm.net',soba));
+	main.use(express.vhost('parking.alihm.net',soba));
+
 
 }
 catch (err)
@@ -22,10 +24,8 @@ catch (err)
 // AliHM.net
 try
 {
-
-	var soba = require ('../soba14-web'); //Temporary fix for soba 14 till we buy the domain
-	// var alihm = require('../alihm');
-	main.use(express.vhost('*.alihm.net', soba));
+	var alihm = require('../alihm');
+	main.use(express.vhost('www.alihm.net', soba));
 	main.use(express.vhost('alihm.net',soba));
 }
 catch (err)
