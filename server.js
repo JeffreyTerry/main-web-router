@@ -3,6 +3,9 @@ var express = require('express'),
 
 
 main.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
+main.use(express.json());
+main.use(express.urlencoded());
+
 // SoBA Spring 2014 app
 try 
 {
@@ -20,8 +23,6 @@ try
 	var alihm = require('../alihm');
 	main.use(express.vhost('*.alihm.net', alihm));
 	main.use(express.vhost('alihm.net',alihm));
-	main.use(express.vhost('localhost',alihm));
-
 }
 catch (err)
 {
