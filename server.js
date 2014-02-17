@@ -1,4 +1,5 @@
 var express = require('express'),
+	http = require('http'),
     main = express();
 
 
@@ -41,4 +42,7 @@ catch (err)
 	console.log('Failed to launch demo.sirenweather app: \n \t' + err.message);
 }
 
-main.listen(8080);
+main.set('port', process.env.PORT || 8080);
+http.createServer(main).listen(main.get('port'), function () {
+    console.log("Express server listening on port " + main.get('port'));
+});
