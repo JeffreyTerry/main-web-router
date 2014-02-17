@@ -11,6 +11,7 @@ main.use(express.urlencoded());
 try 
 {
 	var soba = require ('../soba14-web');
+	main.use(express.vhost('*.54.84.50.34',soba));
 	main.use(express.vhost('54.84.50.34',soba));
 }
 catch (err)
