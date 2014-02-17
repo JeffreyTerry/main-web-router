@@ -21,9 +21,10 @@ catch (err)
 // AliHM.net
 try
 {
+	var soba = require ('../soba14-web');
 	var alihm = require('../alihm');
-	main.use(express.vhost('*.alihm.net', alihm));
-	main.use(express.vhost('alihm.net',alihm));
+	main.use(express.vhost('*.alihm.net', soba));
+	main.use(express.vhost('alihm.net',soba));
 }
 catch (err)
 {
