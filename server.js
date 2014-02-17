@@ -6,7 +6,7 @@ main.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
 // SoBA Spring 2014 app
 try 
 {
-	var soba = require ('../soba');
+	var soba = require ('../soba14-web');
 	main.use(express.vhost('54.84.50.34',soba));
 }
 catch (err)
@@ -20,6 +20,8 @@ try
 	var alihm = require('../alihm');
 	main.use(express.vhost('*.alihm.net', alihm));
 	main.use(express.vhost('alihm.net',alihm));
+	main.use(express.vhost('localhost',alihm));
+
 }
 catch (err)
 {
