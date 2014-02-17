@@ -25,8 +25,8 @@ catch (err)
 try
 {
 	var alihm = require('../alihm');
-	main.use(express.vhost('www.alihm.net', soba));
-	main.use(express.vhost('alihm.net',soba));
+	main.use(express.vhost('www.alihm.net', alihm));
+	main.use(express.vhost('alihm.net',alihm));
 }
 catch (err)
 {
