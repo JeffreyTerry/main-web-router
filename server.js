@@ -10,11 +10,7 @@ main.use(express.urlencoded());
 // SoBA Spring 2014 app
 try 
 {
-	var soba = require ('../soba14-web');
-	main.use(express.vhost('*.parking.alihm.net',soba));
-	main.use(express.vhost('parking.alihm.net',soba));
-
-
+	main.use(express.vhost('*parking.alihm.net',require ('../soba14-web')));
 }
 catch (err)
 {
@@ -24,9 +20,7 @@ catch (err)
 // AliHM.net
 try
 {
-	var alihm = require('../alihm');
-	main.use(express.vhost('*alihm.net', alihm));
-	// main.use(express.vhost('alihm.net',alihm));
+	main.use(express.vhost('*alihm.net', require('../alihm')));
 }
 catch (err)
 {
@@ -36,9 +30,7 @@ catch (err)
 // demo.sirenweather.com
 try
 {
-	sirenDemo = require('../siren-demo')
-	main.use(express.vhost('*.demo.sirenweather.com',sirenDemo));
-	main.use(express.vhost('demo.sirenweather.com',sirenDemo));
+	main.use(express.vhost('*demo.sirenweather.com',require('../siren-demo')));
 }
 catch (err)
 {
