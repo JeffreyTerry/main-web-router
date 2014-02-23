@@ -37,6 +37,16 @@ catch (err)
 	console.log('Failed to launch demo.sirenweather app: \n \t' + err.message);
 }
 
+// demo.sirenweather.com
+try
+{
+	main.use(express.vhost('*sirenweather.com',require('../siren-splash')));
+}
+catch (err)
+{
+	console.log('Failed to launch sirenweather splash: \n \t' + err.message);
+}
+
 main.set('port', process.env.PORT || 8080);
 http.createServer(main).listen(main.get('port'), function () {
     console.log("Express server listening on port " + main.get('port'));
