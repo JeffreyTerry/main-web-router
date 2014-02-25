@@ -40,7 +40,7 @@ catch (err)
 // demo.sirenweather.com
 try
 {
-	main.use(express.vhost('*sirenweather.com',require('../siren-splash')));
+	main.use(express.vhost('*sirenweather.com',require('../Siren-Splash')));
 }
 catch (err)
 {
