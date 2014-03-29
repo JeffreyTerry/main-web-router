@@ -7,14 +7,24 @@ main.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
 main.use(express.json());
 main.use(express.urlencoded());
 
-// SoBA Spring 2014 app
+// ParkAVE dev subdomain
 try 
 {
-	main.use(express.vhost('*parking.alihm.net',require ('../soba14-web')));
+	main.use(express.vhost('*dev.getparkave.com/',require ('../soba14-web')));
 }
 catch (err)
 {
 	console.log('Failed to launch soba14-web: \n \t' + err.message);
+}
+
+// ParkAVE splash page
+try 
+{
+	main.use(express.vhost('*getparkave.com/',require ('../parkave-splash')));
+}
+catch (err)
+{
+	console.log('Failed to launch parkave splash: \n \t' + err.message);
 }
 
 // AliHM.net
