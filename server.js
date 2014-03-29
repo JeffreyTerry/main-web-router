@@ -10,7 +10,7 @@ main.use(express.urlencoded());
 // ParkAVE dev subdomain
 try 
 {
-	main.use(express.vhost('*dev.getparkave.com/',require ('../soba14-web')));
+	main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
 }
 catch (err)
 {
@@ -20,7 +20,7 @@ catch (err)
 // ParkAVE splash page
 try 
 {
-	main.use(express.vhost('*getparkave.com/',require ('../parkave-splash')));
+	main.use(express.vhost('*getparkave.com',require ('../parkave-splash')));
 }
 catch (err)
 {
