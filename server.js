@@ -3,6 +3,7 @@ var express = require('express'),
     main = express();
 
 process.env['NODE_ENV'] = 'production';
+console.log(process.env.NODE_ENV);
 
 main.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
 main.use(express.json());
