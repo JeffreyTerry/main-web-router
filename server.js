@@ -3,7 +3,6 @@ var express = require('express'),
     main = express();
 
 process.env['NODE_ENV'] = 'production';
-console.log(process.env.NODE_ENV);
 
 main.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
 main.use(express.json());
@@ -12,7 +11,10 @@ main.use(express.urlencoded());
 // ParkAVE dev subdomain
 try 
 {
-	main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
+	app.get('*dev.getparkave.com', function(req, res){
+  		return res.redirec('*dev.getparkave.com:3000')
+	});
+	// main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
 }
 catch (err)
 {
