@@ -9,17 +9,17 @@ main.use(express.json());
 main.use(express.urlencoded());
 
 // ParkAVE dev subdomain
-try 
-{
-	app.get('*dev.getparkave.com', function(req, res){
-  		return res.redirec('*dev.getparkave.com:3000')
-	});
-	// main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
-}
-catch (err)
-{
-	console.log('Failed to launch soba14-web: \n \t' + err.message);
-}
+// try 
+// {
+// 	main.get('*dev.getparkave.com', function(req, res){
+//   		return res.redirec('dev.getparkave.com:3000/'+req.url)
+// 	});
+// 	// main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
+// }
+// catch (err)
+// {
+// 	console.log('Failed to launch soba14-web: \n \t' + err.message);
+// }
 
 // ParkAVE splash page
 try 
