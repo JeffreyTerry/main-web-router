@@ -41,15 +41,15 @@ catch (err)
 // 	console.log('Failed to launch alihm app: \n \t' + err.message);
 // }
 
-// // demo.sirenweather.com
-// try
-// {
-// 	main.use(express.vhost('*demo.sirenweather.com',require('../siren-demo')));
-// }
-// catch (err)
-// {
-// 	console.log('Failed to launch demo.sirenweather app: \n \t' + err.message);
-// }
+// demo.sirenweather.com
+try
+{
+	main.use(express.vhost('*demo.sirenweather.com',require('../siren-demo')));
+}
+catch (err)
+{
+	console.log('Failed to launch demo.sirenweather app: \n \t' + err.message);
+}
 
 // Sirenweather.com
 try
