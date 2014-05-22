@@ -8,13 +8,19 @@ main.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
 main.use(express.json());
 main.use(express.urlencoded());
 
+
+main.set('port', process.env.PORT || 8080);
+http.createServer(main).listen(main.get('port'), function () {
+    console.log("Express server listening on port " + main.get('port'));
+});
+
 // ParkAVE dev subdomain
 try 
 {
-	// main.get('*dev.getparkave.com', function(req, res){
- //  		return res.redirec('dev.getparkave.com:3000/'+req.url)
-	// });
-	main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
+	main.get('*dev.getparkave.com', function(req, res){
+  		return res.redirec('dev.getparkave.com:3000/'+req.url)
+	});
+	// main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
 }
 catch (err)
 {
@@ -61,7 +67,3 @@ catch (err)
 	console.log('Failed to launch sirenweather splash: \n \t' + err.message);
 }
 
-main.set('port', process.env.PORT || 8080);
-http.createServer(main).listen(main.get('port'), function () {
-    console.log("Express server listening on port " + main.get('port'));
-});
