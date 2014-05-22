@@ -9,17 +9,17 @@ main.use(express.json());
 main.use(express.urlencoded());
 
 // ParkAVE dev subdomain
-// try 
-// {
-// 	main.get('*dev.getparkave.com', function(req, res){
-//   		return res.redirec('dev.getparkave.com:3000/'+req.url)
-// 	});
-// 	// main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
-// }
-// catch (err)
-// {
-// 	console.log('Failed to launch soba14-web: \n \t' + err.message);
-// }
+try 
+{
+	// main.get('*dev.getparkave.com', function(req, res){
+ //  		return res.redirec('dev.getparkave.com:3000/'+req.url)
+	// });
+	main.use(express.vhost('*dev.getparkave.com',require ('../soba14-web')));
+}
+catch (err)
+{
+	console.log('Failed to launch soba14-web: \n \t' + err.message);
+}
 
 // ParkAVE splash page
 try 
@@ -32,14 +32,14 @@ catch (err)
 }
 
 // AliHM.net
-// try
-// {
-// 	main.use(express.vhost('*alihm.net', require('../alihm')));
-// }
-// catch (err)
-// {
-// 	console.log('Failed to launch alihm app: \n \t' + err.message);
-// }
+try
+{
+	main.use(express.vhost('*alihm.net', require('../alihm')));
+}
+catch (err)
+{
+	console.log('Failed to launch alihm app: \n \t' + err.message);
+}
 
 // demo.sirenweather.com
 try
