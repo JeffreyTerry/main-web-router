@@ -32,7 +32,7 @@ catch(err) {
   console.log('Failed to launch Educode:\n\t' + err.message);
 }
 
-main.set('port', process.env.PORT || 8000);
+main.set('port', process.env.PORT || 3000);
 http.createServer(main).listen(main.get('port'), function () {
     console.log("Express server listening on port " + main.get('port'));
 });
