@@ -26,7 +26,7 @@ catch(err) {
 
 // Educode web site
 try {
-  main.use(express.vhost('*educode.org', require('../educode')));
+  main.use(express.vhost('*educode.org', require('../educode-org')));
 }
 catch(err) {
   console.log('Failed to launch Educode:\n\t' + err.message);
