@@ -32,6 +32,22 @@ catch(err) {
   console.log('Failed to launch Educode:\n\t' + err.message);
 }
 
+// The Seed web site
+try {
+  main.use(express.vhost('*theseedok.com', require('../the-seed-ok-com')));
+}
+catch(err) {
+  console.log('Failed to launch The Seed:\n\t' + err.message);
+}
+
+// Park Ave web site
+try {
+  main.use(express.vhost('*getparkave.com', require('../park-ave-xip')));
+}
+catch(err) {
+  console.log('Failed to launch Park Ave:\n\t' + err.message);
+}
+
 main.set('port', process.env.PORT || 3000);
 http.createServer(main).listen(main.get('port'), function () {
     console.log("Express server listening on port " + main.get('port'));
