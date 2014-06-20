@@ -40,6 +40,14 @@ catch(err) {
   console.log('Failed to launch The Seed:\n\t' + err.message);
 }
 
+// Park Ave blog
+try {
+  main.use(express.vhost('*blog.projectxip.com', require('../blog-park-ave-xip')));
+}
+catch(err) {
+  console.log('Failed to launch XiP Blog:\n\t' + err.message);
+}
+
 // Park Ave web site
 try {
   main.use(express.vhost('*projectxip.com', require('../park-ave-xip')));
@@ -48,13 +56,6 @@ catch(err) {
   console.log('Failed to launch XiP:\n\t' + err.message);
 }
 
-// Park Ave blog
-try {
-  main.use(express.vhost('*blog.projectxip.com', require('../blog-park-ave-xip')));
-}
-catch(err) {
-  console.log('Failed to launch XiP Blog:\n\t' + err.message);
-}
 
 main.set('port', process.env.PORT || 3000);
 http.createServer(main).listen(main.get('port'), function () {
