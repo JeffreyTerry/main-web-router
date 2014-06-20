@@ -42,7 +42,7 @@ catch(err) {
 
 // Park Ave web site
 try {
-  main.use(express.vhost('http://projectxip.com', require('../park-ave-xip')));
+  main.use(express.vhost('*projectxip.com', require('../park-ave-xip')));
 }
 catch(err) {
   console.log('Failed to launch XiP:\n\t' + err.message);
