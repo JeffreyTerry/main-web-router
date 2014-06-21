@@ -4,7 +4,7 @@ var express = require('express'),
 
 process.env['NODE_ENV'] = 'production';
 
-main.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
+main.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
 main.use(express.json());
 main.use(express.urlencoded());
 
