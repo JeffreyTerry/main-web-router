@@ -24,6 +24,14 @@ catch(err) {
   console.log('Failed to launch JeffTerry:\n\t' + err.message);
 }
 
+// Jeff Terry personal web site
+try {
+  main.use(express.vhost('*jeffterry.org', require('../jeff-terry-net')));
+}
+catch(err) {
+  console.log('Failed to launch JeffTerry:\n\t' + err.message);
+}
+
 // Educode web site
 try {
   main.use(express.vhost('*educode.org', require('../educode-org')));
