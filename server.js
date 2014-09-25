@@ -42,7 +42,7 @@ catch(err) {
 
 // The Seed web site
 try {
-  main.use(express.vhost('*theseedok.com', require('../the-seed-ok-com')));
+  main.use(express.vhost('*theseedok.com', require('../blazes/server_code/server')));
 }
 catch(err) {
   console.log('Failed to launch The Seed:\n\t' + err.message);
