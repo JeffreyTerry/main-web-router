@@ -42,10 +42,10 @@ catch(err) {
 
 // The Seed web site
 try {
-  main.use(express.vhost('*theseedok.com', require('../blazes/server_code/server')));
+  main.use(express.vhost('*theseedok.com', require('../busme/server_stuff/server')));
 }
 catch(err) {
-  console.log('Failed to launch The Seed:\n\t' + err.message);
+  console.log('Failed to launch BusMe:\n\t' + err.message);
 }
 
 // Park Ave web site
