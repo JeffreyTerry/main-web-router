@@ -64,6 +64,14 @@ catch(err) {
   console.log('Failed to launch XiP Blog:\n\t' + err.message);
 }
 
+// SpeedYo
+try {
+  main.use(express.vhost('54.201.26.7', require('../speedyo')));
+}
+catch(err) {
+  console.log('Failed to launch SpeedYo:\n\t' + err.message);
+}
+
 main.set('port', process.env.PORT || 3000);
 http.createServer(main).listen(main.get('port'), function () {
     console.log("Express server listening on port " + main.get('port'));
