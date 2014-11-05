@@ -4,6 +4,9 @@ var express = require('express'),
 
 process.env['NODE_ENV'] = 'production';
 
+var server = http.createServer(main);
+global.io = require('socket.io')(server);
+
 main.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
 main.use(express.json());
 main.use(express.urlencoded());
@@ -73,6 +76,6 @@ catch(err) {
 }
 
 main.set('port', process.env.PORT || 3000);
-http.createServer(main).listen(main.get('port'), function () {
+server.listen(main.get('port'), function () {
     console.log("Express server listening on port " + main.get('port'));
 });
