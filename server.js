@@ -21,7 +21,7 @@ catch(err) {
 
 // Jeff Terry personal web site
 try {
-  main.use(express.vhost('*jeffterry.net', require('../jeff-terry-net')));
+  main.use(express.vhost('jeffterry.net', require('../jeff-terry-net')));
 }
 catch(err) {
   console.log('Failed to launch JeffTerry:\n\t' + err.message);
@@ -29,7 +29,15 @@ catch(err) {
 
 // Jeff Terry personal web site
 try {
-  main.use(express.vhost('*jeffterry.org', require('../jeff-terry-net')));
+  main.use(express.vhost('jeffterry.org', require('../jeff-terry-net')));
+}
+catch(err) {
+  console.log('Failed to launch JeffTerry:\n\t' + err.message);
+}
+
+// Jeff Terry personal web site
+try {
+  main.use(express.vhost('blog.jeffterry.org', require('../blog-jeff-terry-org')));
 }
 catch(err) {
   console.log('Failed to launch JeffTerry:\n\t' + err.message);
