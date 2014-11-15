@@ -40,7 +40,7 @@ try {
   main.use(express.vhost('blog.jeffterry.org', require('../blog-jeff-terry-org')));
 }
 catch(err) {
-  console.log('Failed to launch JeffTerry:\n\t' + err.message);
+  console.log('Failed to launch JeffTerry Blog:\n\t' + err.message);
 }
 
 // InvolveU
@@ -48,7 +48,7 @@ try {
   main.use(express.vhost('involveu.jeffterry.org', require('../involveu')));
 }
 catch(err) {
-  console.log('Failed to launch JeffTerry:\n\t' + err.message);
+  console.log('Failed to launch InvolveU:\n\t' + err.message);
 }
 
 // Educode web site
