@@ -43,6 +43,14 @@ catch(err) {
   console.log('Failed to launch JeffTerry:\n\t' + err.message);
 }
 
+// InvolveU
+try {
+  main.use(express.vhost('involveu.jeffterry.org', require('../involveu')));
+}
+catch(err) {
+  console.log('Failed to launch JeffTerry:\n\t' + err.message);
+}
+
 // Educode web site
 try {
   main.use(express.vhost('*educode.org', require('../educode-org')));
