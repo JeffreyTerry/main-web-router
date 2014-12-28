@@ -35,6 +35,14 @@ catch(err) {
   console.log('Failed to launch JeffTerry:\n\t' + err.message);
 }
 
+// J + J web site
+try {
+  main.use(express.vhost('jordanlarsen.plus.jeffterry.org', require('../jj-org')));
+}
+catch(err) {
+  console.log('Failed to launch J + J:\n\t' + err.message);
+}
+
 // Jeff Terry personal web site
 try {
   main.use(express.vhost('blog.jeffterry.org', require('../blog-jeff-terry-org')));
