@@ -59,6 +59,14 @@ catch(err) {
   console.log('Failed to launch InvolveU:\n\t' + err.message);
 }
 
+// SpeedYo
+try {
+  main.use(express.vhost('speedyo.jeffterry.org', require('../speedyo')));
+}
+catch(err) {
+  console.log('Failed to launch SpeedYo:\n\t' + err.message);
+}
+
 // Educode web site
 try {
   main.use(express.vhost('*educode.org', require('../educode-org')));
