@@ -101,7 +101,7 @@ catch(err) {
 
 // Vocal Orchard
 try {
-  main.use(express.vhost('vocalorchard.com', require('../vocal-orchard-com')));
+  main.use(express.vhost('*vocalorchard.com', require('../vocal-orchard-com')));
 }
 catch(err) {
   console.log('Failed to launch Vocal Orchard:\n\t' + err.message);
