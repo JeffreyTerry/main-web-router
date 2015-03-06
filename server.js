@@ -99,6 +99,14 @@ catch(err) {
   console.log('Failed to launch XiP Blog:\n\t' + err.message);
 }
 
+// CCEW Vault
+try {
+  main.use(express.vhost('*ccew-vault.tk', require('../ccew-vault')));
+}
+catch(err) {
+  console.log('Failed to launch CCEW Vault:\n\t' + err.message);
+}
+
 // SpeedYo
 try {
   main.use(express.vhost('54.201.26.7', require('../speedyo')));
