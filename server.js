@@ -67,6 +67,14 @@ catch(err) {
   console.log('Failed to launch SpeedYo:\n\t' + err.message);
 }
 
+// Vocal Orchard
+try {
+  main.use(express.vhost('vocalorchard.jeffterry.org', require('../vocal-orchard-com')));
+}
+catch(err) {
+  console.log('Failed to launch Vocal Orchard:\n\t' + err.message);
+}
+
 // Educode web site
 try {
   main.use(express.vhost('*educode.org', require('../educode-org')));
@@ -113,14 +121,6 @@ try {
 }
 catch(err) {
   console.log('Failed to launch SpeedYo:\n\t' + err.message);
-}
-
-// Vocal Orchard
-try {
-  main.use(express.vhost('*vocalorchard.com', require('../vocal-orchard-com')));
-}
-catch(err) {
-  console.log('Failed to launch Vocal Orchard:\n\t' + err.message);
 }
 
 main.set('port', process.env.PORT || 3000);
