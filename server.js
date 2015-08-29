@@ -75,17 +75,9 @@ catch(err) {
   console.log('Failed to launch Vocal Orchard:\n\t' + err.message);
 }
 
-// Educode web site
-try {
-  main.use(express.vhost('*educode.org', require('../educode-org')));
-}
-catch(err) {
-  console.log('Failed to launch Educode:\n\t' + err.message);
-}
-
 // The Seed web site
 try {
-  main.use(express.vhost('*theseedok.com', require('../busme/server_stuff/server')));
+  main.use(express.vhost('busme.jeffterry.org', require('../busme/server_stuff/server')));
 }
 catch(err) {
   console.log('Failed to launch BusMe:\n\t' + err.message);
