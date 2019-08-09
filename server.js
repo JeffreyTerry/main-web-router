@@ -1,19 +1,22 @@
-var express = require('express'),
+const express = require('express'),
     http = require('http'),
-    main = express();
+    main = express(),
+    morgan = require('morgan'),
+    bodyParser = require('body-parser'),
+    vhost = require('vhost');
 
 process.env['NODE_ENV'] = 'production';
 
 var server = http.createServer(main);
 global.io = require('socket.io')(server);
 
-main.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
-main.use(express.json());
-main.use(express.urlencoded());
+main.use(morgan('dev')); /* 'default', 'short', 'tiny', 'dev' */
+main.use(bodyParser.json());
+main.use(bodyParser.urlencoded());
 
 // NSGOCG web site
 try {
-  main.use(express.vhost('*nsgocg.org', require('../nsgocg')));
+  main.use(vhost('*nsgocg.org', require('../nsgocg')));
 }
 catch(err) {
   console.log('Failed to launch NSGOCG:\n\t' + err.message);
@@ -21,7 +24,7 @@ catch(err) {
 
 // Jeff Terry personal web site
 try {
-  main.use(express.vhost('jeffterry.net', require('../jeff-terry-net')));
+  main.use(vhost('jeffterry.net', require('../jeff-terry-net')));
 }
 catch(err) {
   console.log('Failed to launch JeffTerry:\n\t' + err.message);
@@ -29,7 +32,7 @@ catch(err) {
 
 // Jeff Terry personal web site
 try {
-  main.use(express.vhost('jeffterry.org', require('../jeff-terry-net')));
+  main.use(vhost('jeffterry.org', require('../jeff-terry-net')));
 }
 catch(err) {
   console.log('Failed to launch JeffTerry:\n\t' + err.message);
@@ -37,7 +40,7 @@ catch(err) {
 
 // J + J web site
 try {
-  main.use(express.vhost('jordanlarsen.plus.jeffterry.org', require('../jj-org')));
+  main.use(vhost('jordanlarsen.plus.jeffterry.org', require('../jj-org')));
 }
 catch(err) {
   console.log('Failed to launch J + J:\n\t' + err.message);
@@ -45,7 +48,7 @@ catch(err) {
 
 // Jeff Terry personal web site
 try {
-  main.use(express.vhost('blog.jeffterry.org', require('../blog-jeff-terry-org')));
+  main.use(vhost('blog.jeffterry.org', require('../blog-jeff-terry-org')));
 }
 catch(err) {
   console.log('Failed to launch JeffTerry Blog:\n\t' + err.message);
@@ -53,7 +56,7 @@ catch(err) {
 
 // InvolveU
 try {
-  main.use(express.vhost('involveu.jeffterry.org', require('../involveu')));
+  main.use(vhost('involveu.jeffterry.org', require('../involveu')));
 }
 catch(err) {
   console.log('Failed to launch InvolveU:\n\t' + err.message);
@@ -61,7 +64,7 @@ catch(err) {
 
 // SpeedYo
 try {
-  main.use(express.vhost('speedyo.jeffterry.org', require('../speedyo')));
+  main.use(vhost('speedyo.jeffterry.org', require('../speedyo')));
 }
 catch(err) {
   console.log('Failed to launch SpeedYo:\n\t' + err.message);
@@ -69,7 +72,7 @@ catch(err) {
 
 // Vocal Orchard
 try {
-  main.use(express.vhost('vocalorchard.jeffterry.org', require('../vocal-orchard-com')));
+  main.use(vhost('vocalorchard.jeffterry.org', require('../vocal-orchard-com')));
 }
 catch(err) {
   console.log('Failed to launch Vocal Orchard:\n\t' + err.message);
@@ -77,7 +80,7 @@ catch(err) {
 
 // The Seed web site
 try {
-  main.use(express.vhost('busme.jeffterry.org', require('../busme/server_stuff/server')));
+  main.use(vhost('busme.jeffterry.org', require('../busme/server_stuff/server')));
 }
 catch(err) {
   console.log('Failed to launch BusMe:\n\t' + err.message);
@@ -85,7 +88,7 @@ catch(err) {
 
 // Project XiP web site
 try {
-  main.use(express.vhost('projectxip.com', require('../park-ave-xip')));
+  main.use(vhost('projectxip.com', require('../park-ave-xip')));
 }
 catch(err) {
   console.log('Failed to launch XiP:\n\t' + err.message);
@@ -93,7 +96,7 @@ catch(err) {
 
 // Project XiP blog
 try {
-  main.use(express.vhost('blog.projectxip.com', require('../blog-park-ave-xip')));
+  main.use(vhost('blog.projectxip.com', require('../blog-park-ave-xip')));
 }
 catch(err) {
   console.log('Failed to launch XiP Blog:\n\t' + err.message);
@@ -101,7 +104,7 @@ catch(err) {
 
 // CCEW Vault
 try {
-  main.use(express.vhost('*ccew-vault.tk', require('../ccew-vault')));
+  main.use(vhost('*ccew-vault.tk', require('../ccew-vault')));
 }
 catch(err) {
   console.log('Failed to launch CCEW Vault:\n\t' + err.message);
@@ -109,7 +112,7 @@ catch(err) {
 
 // SpeedYo
 try {
-  main.use(express.vhost('54.201.26.7', require('../speedyo')));
+  main.use(vhost('54.201.26.7', require('../speedyo')));
 }
 catch(err) {
   console.log('Failed to launch SpeedYo:\n\t' + err.message);
